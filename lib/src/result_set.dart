@@ -1,3 +1,5 @@
 part of dart_gdbc;
 
-abstract class ResultSet {}
+abstract class ResultSet {
+  bool success = false;
+}
