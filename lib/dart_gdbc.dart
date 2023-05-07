@@ -1,5 +1,7 @@
 library dart_gdbc;
 
+import 'dart:convert';
+
 part 'src/exeception/gdbc_exception.dart';
 part 'src/exeception/connect_exception.dart';
 part 'src/exeception/query_exception.dart';
@@ -14,6 +16,7 @@ part 'src/statement.dart';
 part 'src/result_set.dart';
 part 'src/result_set_meta_data.dart';
 part 'src/parameter_meta_data.dart';
+part 'src/value_meta_data.dart';
 
 part 'src/prepared_statement.dart';
 

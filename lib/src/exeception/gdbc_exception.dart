@@ -13,7 +13,7 @@ class GdbcException implements Error {
   @override
   String toString() {
     var buffer = StringBuffer();
-    buffer.write('GdbcException');
+    buffer.write(runtimeType);
     if (message != null) {
       buffer.write(': $message');
     }

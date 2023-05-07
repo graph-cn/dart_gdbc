@@ -16,8 +16,12 @@ class DriverManager {
     String? username,
     String? password,
   }) async {
-    var driver =
-        _drivers.values.firstWhere((element) => element.acceptsURL(url));
+    Driver? driver;
+    try {
+      driver = _drivers.values.firstWhere((element) => element.acceptsURL(url));
+    } catch (e) {
+      throw ArgumentError('No suitable driver found for $url');
+    }
     properties ??= {};
     if (username != null) {
       properties[usrKey] ??= username;

@@ -2,26 +2,38 @@ part of dart_gdbc;
 
 enum GdbTypes {
   // types in graph database
-  axisLine,
-  axisPoint,
-  axisPolygon,
+  line,
+  point,
+  polygon,
   node,
+  tag,
+  prop,
   path,
   relationship,
+  step,
 
   // basic types in dart
-  bytes,
-  int,
-  double,
-  string,
   bool,
+  byte,
+  short,
+  int,
+  long,
+  float,
+  double,
+
+  bytes,
+  string,
+
   date,
   time,
   dateTime,
   duration,
+
   list,
   map,
   set,
   none,
+
   unknown,
+  dataSet,
 }
