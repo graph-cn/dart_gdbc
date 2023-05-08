@@ -1,7 +1,7 @@
 name: dart_gdbc
-description: A sample command-line application.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: A standard interface specification for accessing graph databases based on Dart language --- 一个基于dart语言访问图数据库的标准接口规范
+version: 0.0.1
+repository: https://github.com/graph-cn/dart_gdbc
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
