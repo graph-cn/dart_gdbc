@@ -4,6 +4,7 @@
 
 part of dart_gdbc;
 
+/// A super class for all exceptions thrown by dart_gdbc.
 class GdbcException implements Error {
   final String? message;
 

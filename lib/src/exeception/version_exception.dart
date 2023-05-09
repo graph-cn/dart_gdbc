@@ -4,6 +4,7 @@
 
 part of dart_gdbc;
 
+/// Thrown when client and server versions are incompatible.
 class VersionException extends GdbcException {
   VersionException({String? message, Error? cause})
       : super(message: message, cause: cause);

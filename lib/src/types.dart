@@ -4,6 +4,16 @@
 
 part of dart_gdbc;
 
+abstract class MetaKey {
+  static String nodeId = '_id';
+  static String relationshipId = '_rId';
+  static String startId = '_startId';
+  static String endId = '_endId';
+  static String startNode = '_start';
+  static String endNode = '_end';
+  static String steps = '_steps';
+}
+
 enum GdbTypes {
   // types in graph database
   line,

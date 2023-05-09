@@ -1,6 +1,6 @@
 name: dart_gdbc
-description: A standard interface specification for accessing graph databases based on Dart language --- 一个基于dart语言访问图数据库的标准接口规范
-version: 0.0.1
+description: A standard interface specification for accessing graph databases based on Dart language
+version: 0.0.1+1
 repository: https://github.com/graph-cn/dart_gdbc
 
 environment:

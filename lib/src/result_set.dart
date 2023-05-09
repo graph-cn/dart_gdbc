@@ -21,7 +21,7 @@ abstract class ResultSet {
   ValueMetaData? meta(List<int> indexes, [List<ValueMetaData>? metas]) {
     indexes = [...indexes];
     metas ??= this.metas;
-    if (indexes.isEmpty) {
+    if (indexes.isEmpty || metas.isEmpty) {
       return null;
     }
 
@@ -34,18 +34,18 @@ abstract class ResultSet {
   }
 
   dynamic value(List<int> colIndexes,
-      [int rowIndex = 0, List<dynamic>? values]) {
+      [int rowIndex = 0, Iterable<dynamic>? values]) {
     colIndexes = [...colIndexes];
     values ??= rows[rowIndex];
-    if (colIndexes.isEmpty) {
+    if (colIndexes.isEmpty || values.isEmpty) {
       return null;
     }
 
     var c = colIndexes.removeAt(0);
     if (colIndexes.isEmpty) {
-      return values[c];
+      return values.map((e) => e).toList()[c];
     } else {
-      return value(colIndexes, values[c]);
+      return value(colIndexes, rowIndex, values.map((e) => e).toList()[c]);
     }
   }
 }

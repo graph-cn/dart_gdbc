@@ -9,7 +9,8 @@ class ValueMetaData {
   String? name;
   final List<ValueMetaData> submetas = [];
 
-  addSubmeta(ValueMetaData submeta) {
+  /// add submeta (if absent) and return its index
+  int addSubmeta(ValueMetaData submeta) {
     var idx =
         submetas.lastIndexWhere((element) => element.name == submeta.name);
     if (idx == -1) {

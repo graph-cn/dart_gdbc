@@ -4,6 +4,11 @@
 
 part of dart_gdbc;
 
+/// Exception thrown when a connection to a database could not be established.
+///---
+/// 當無法連接到數據庫時拋出的異常。
+///---
+/// 当无法连接到数据库时抛出的异常。
 class ConnectException extends GdbcException {
   ConnectException({String? message, Error? cause})
       : super(message: message, cause: cause);

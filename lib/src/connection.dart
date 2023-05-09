@@ -4,29 +4,42 @@
 
 part of dart_gdbc;
 
+/// A connection (session) with a specific database.
 abstract class Connection {
+  /// Creates a new [Statement] instance.
   Future<Statement> createStatement();
 
+  /// Creates a new [PreparedStatement] instance.
   Future<PreparedStatement> prepareStatement(String gql);
 
+  /// Creates a new [PreparedStatement] instance with parameters.
   Future<PreparedStatement> prepareStatementWithParameters(
       String gql, List<ParameterMetaData> parameters);
 
+  /// Executes a query.
   Future<ResultSet> executeQuery(String gql);
 
+  /// Executes an update.
   Future<int> executeUpdate(String gql);
 
+  /// Connection state if auto commit is enabled.
   Future<bool> getAutoCommit();
 
+  /// Set connection state if auto commit is enabled.
   Future<void> setAutoCommit(bool autoCommit);
 
+  /// Commits all changes made since the previous commit/rollback.
   Future<void> commit();
 
+  /// Undoes all changes made in the current transaction.
   Future<void> rollback();
 
+  /// Closes the connection.
   Future<void> close();
 
+  /// Checks if the connection is closed.
   Future<bool> isClosed();
 
+  /// Gets the metadata of the connection.
   Future<ResultSetMetaData> getMetaData();
 }
