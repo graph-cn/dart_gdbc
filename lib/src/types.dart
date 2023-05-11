@@ -16,15 +16,17 @@ abstract class MetaKey {
 
 enum GdbTypes {
   // types in graph database
-  line,
-  point,
-  polygon,
+  none,
   node,
-  tag,
-  prop,
-  path,
   relationship,
+  path,
+  prop,
   step,
+  dataSet,
+
+  list,
+  map,
+  set,
 
   // basic types in dart
   bool,
@@ -43,11 +45,10 @@ enum GdbTypes {
   dateTime,
   duration,
 
-  list,
-  map,
-  set,
-  none,
+  line,
+  point,
+  polygon,
+  geo,
 
   unknown,
-  dataSet,
 }

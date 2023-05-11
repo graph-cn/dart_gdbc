@@ -1,4 +1,4 @@
-## 0.0.1+1
+## 0.0.1+2
 
 - Provided driver manager which can be used to register drivers and get a driver by its legal url
 

@@ -10,12 +10,16 @@ class ValueMetaData {
   final List<ValueMetaData> submetas = [];
 
   /// add submeta (if absent) and return its index
-  int addSubmeta(ValueMetaData submeta) {
-    var idx =
-        submetas.lastIndexWhere((element) => element.name == submeta.name);
+  int addSubmeta(ValueMetaData submeta, List<dynamic>? values, dynamic val) {
+    var idx = submetas.lastIndexWhere(
+        (element) => element.name == submeta.name && submeta.name != null);
     if (idx == -1) {
       submetas.add(submeta);
-      return submetas.length - 1;
+      idx = submetas.length - 1;
+    }
+    if ((values?.length ?? 0) <= idx) {
+      values?.length = idx + 1;
+      values?[idx] = val;
     }
     return idx;
   }
@@ -27,8 +31,8 @@ class ValueMetaData {
 
   Map<String, dynamic> toJson() {
     return {
-      "'type'": type?.index,
-      "'name'": "'$name'",
+      "'type'": '\'${type?.name}\'',
+      "'name'": name != null ? "'$name'" : null,
       "'submetas'": submetas.map((e) => e.toJson()).toList(),
     };
   }
