@@ -25,19 +25,19 @@ class SampleDriver extends Driver {
 
 class SampleStatement extends Statement {
   @override
-  Future<bool> execute([String? gql]) {
+  Future<bool> execute({String? gql, Map<String, dynamic>? params}) {
     // TODO: implement execute
     throw UnimplementedError();
   }
 
   @override
-  Future<ResultSet> executeQuery([String? gql]) {
+  Future<ResultSet> executeQuery({String? gql, Map<String, dynamic>? params}) {
     print(gql);
     return Future.value(SampleResultSet());
   }
 
   @override
-  Future<int> executeUpdate(String? gql) {
+  Future<int> executeUpdate({String? gql, Map<String, dynamic>? params}) {
     // TODO: implement executeUpdate
     throw UnimplementedError();
   }
@@ -70,8 +70,7 @@ class SampleConnection extends Connection {
   }
 
   @override
-  Future<ResultSet> executeQuery(String gql) {
-    print(gql);
+  Future<ResultSet> executeQuery(String? gql, {Map<String, dynamic>? params}) {
     return Future.value(SampleResultSet());
   }
 
@@ -100,7 +99,10 @@ class SampleConnection extends Connection {
   }
 
   @override
-  Future<PreparedStatement> prepareStatement(String gql) {
+  Future<PreparedStatement> prepareStatement(
+    String gql, {
+    String Function(String, Map<String, dynamic>)? render,
+  }) {
     // TODO: implement prepareStatement
     throw UnimplementedError();
   }

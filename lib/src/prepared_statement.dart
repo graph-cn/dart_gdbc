@@ -6,11 +6,11 @@ part of dart_gdbc;
 
 abstract class PreparedStatement extends Statement {
   @override
-  Future<bool> execute([String gql, Map<String, dynamic>? params]);
+  Future<bool> execute({Map<String, dynamic>? params, String gql});
 
   @override
-  Future<ResultSet> executeQuery([String gql, Map<String, dynamic>? params]);
+  Future<ResultSet> executeQuery({Map<String, dynamic>? params, String gql});
 
   @override
-  Future<int> executeUpdate(String gql, [Map<String, dynamic>? params]);
+  Future<int> executeUpdate({Map<String, dynamic>? params, String gql});
 }

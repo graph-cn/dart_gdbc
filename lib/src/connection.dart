@@ -10,14 +10,17 @@ abstract class Connection {
   Future<Statement> createStatement();
 
   /// Creates a new [PreparedStatement] instance.
-  Future<PreparedStatement> prepareStatement(String gql);
+  Future<PreparedStatement> prepareStatement(
+    String gql, {
+    String Function(String, Map<String, dynamic>?)? render,
+  });
 
   /// Creates a new [PreparedStatement] instance with parameters.
   Future<PreparedStatement> prepareStatementWithParameters(
       String gql, List<ParameterMetaData> parameters);
 
   /// Executes a query.
-  Future<ResultSet> executeQuery(String gql);
+  Future<ResultSet> executeQuery(String gql, {Map<String, dynamic>? params});
 
   /// Executes an update.
   Future<int> executeUpdate(String gql);
