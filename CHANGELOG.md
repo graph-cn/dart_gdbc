@@ -1,3 +1,6 @@
+## 0.0.1+4
+- Fix bug: remove jsonEncode from ResultSet toString() method.
+
 ## 0.0.1+3
 - Change statement apis
 - Support gql render in prepared statement

@@ -4,8 +4,6 @@
 
 library dart_gdbc;
 
-import 'dart:convert';
-
 part 'src/exeception/gdbc_exception.dart';
 part 'src/exeception/connect_exception.dart';
 part 'src/exeception/query_exception.dart';

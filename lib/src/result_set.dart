@@ -15,7 +15,7 @@ abstract class ResultSet {
 
   @override
   String toString() {
-    return '$runtimeType{\n\tsuccess: $success,\n\tmetas: ${metas.map((e) => e.toJson()).toList()},\n\tcolumns: $columns,\n\trows: ${jsonEncode(rows)}\n}';
+    return '$runtimeType{\n\tsuccess: $success,\n\tmetas: ${metas.map((e) => e.toJson()).toList()},\n\tcolumns: $columns,\n\trows: $rows\n}';
   }
 
   ValueMetaData? meta(List<int> indexes, [List<ValueMetaData>? metas]) {
