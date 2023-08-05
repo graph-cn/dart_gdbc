@@ -4,6 +4,8 @@
 
 library dart_gdbc;
 
+import 'dart:collection';
+
 part 'src/exeception/gdbc_exception.dart';
 part 'src/exeception/connect_exception.dart';
 part 'src/exeception/query_exception.dart';
@@ -14,6 +16,13 @@ part 'src/driver_manager.dart';
 part 'src/driver.dart';
 part 'src/connection.dart';
 part 'src/statement.dart';
+
+part 'src/mixins/has_data_source.dart';
+part 'src/mixins/has_driver.dart';
+part 'src/mixins/pooled.dart';
+part 'src/mixins/has_pool.dart';
+part 'src/pool/pool_config.dart';
+part 'src/pool/connection_pool.dart';
 
 part 'src/result_set.dart';
 part 'src/result_set_meta_data.dart';

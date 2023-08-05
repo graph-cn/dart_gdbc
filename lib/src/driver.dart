@@ -13,7 +13,7 @@ part of dart_gdbc;
 /// 数据库驱动接口，提供两个方法：
 /// * 给定 url 的格式，通过 url 格式来确定使用的驱动
 /// * 通过 url 和 properties 来创建一个 [Connection]
-abstract class Driver {
+abstract class Driver with HasDataSource {
   /// Attempts to make a database connection to the given URL.
   /// ---
   /// 嘗試通過給定的 url 來創建一個數據庫連接。

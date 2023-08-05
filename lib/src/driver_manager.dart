@@ -48,6 +48,7 @@ class DriverManager {
     Map<String, dynamic>? properties,
     String? username,
     String? password,
+    ConnectionPool? pooledConnection,
   }) async {
     Driver? driver;
     try {
@@ -62,6 +63,14 @@ class DriverManager {
     if (password != null) {
       properties[pwdKey] ??= password;
     }
-    return await driver.connect(url, properties: properties);
+
+    if (pooledConnection != null) {
+      pooledConnection.config.url = url;
+      pooledConnection.config.properties = properties;
+      pooledConnection.driver = driver;
+      return pooledConnection;
+    } else {
+      return await driver.connect(url, properties: properties);
+    }
   }
 }

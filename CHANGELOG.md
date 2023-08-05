@@ -1,3 +1,6 @@
+## 0.0.2
+- Feat: Connection pool support.
+
 ## 0.0.1+4
 - Fix bug: remove jsonEncode from ResultSet toString() method.
 
