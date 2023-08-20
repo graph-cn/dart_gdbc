@@ -20,9 +20,15 @@ abstract class ConnectionPool<T extends Pooled> extends Connection
   Future<D> proxy<D>(Future<D> Function(Connection) method) async {
     var ist = await instance;
     var conn = connectionGetter(ist);
-    var proxyResult = method.call(conn);
-    returnObj(ist);
-    return await proxyResult;
+    try {
+      var proxyResult = await method.call(conn);
+      returnObj(ist);
+      return proxyResult;
+    } catch (e) {
+      returnObj(ist);
+      pool.remove(ist);
+      rethrow;
+    }
   }
 
   @override

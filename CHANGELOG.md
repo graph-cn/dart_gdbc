@@ -1,3 +1,6 @@
+## 0.0.2+1
+- Fix bug: remove broken connection from pool.
+
 ## 0.0.2
 - Feat: Connection pool support.
 
