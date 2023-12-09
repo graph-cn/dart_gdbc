@@ -1,3 +1,6 @@
+## 0.0.2+2
+- fix: PoolConfig provides a constructor with parameters
+
 ## 0.0.2+1
 - Fix bug: remove broken connection from pool.
 

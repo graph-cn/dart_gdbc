@@ -2,7 +2,7 @@
 //
 // This source code is licensed under Apache 2.0 License.
 
-part of dart_gdbc_pool;
+part of "../dart_gdbc_pool.dart";
 
 /// 状态化的连接池
 ///
@@ -51,6 +51,7 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
     while (pool.where((e) => e.state == PooledState.idle).length >
         config.minSize) {
       var idleFirst = pool.firstWhere((e) => e.state == PooledState.idle);
+      idleFirst.origin?.close();
       pool.remove(idleFirst);
       idleCount--;
     }
@@ -62,13 +63,14 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
   ///
   /// Remove connections that have been created for too long
   void keepPoolYound() {
-    while (pool
-        .where((e) =>
-            e.birth.add(config.lifetime).isBefore(DateTime.now()) &&
-            e.state == PooledState.idle)
-        .isNotEmpty) {
+    while (pool.where((e) {
+      var isOld = e.birth.add(config.lifetime).isBefore(DateTime.now());
+      var isIdle = e.state == PooledState.idle;
+      return isOld && isIdle;
+    }).isNotEmpty) {
       var oldFirst = pool.firstWhere(
           (e) => e.birth.add(config.lifetime).isBefore(DateTime.now()));
+      oldFirst.origin?.close();
       pool.remove(oldFirst);
       idleCount--;
     }

@@ -2,7 +2,7 @@
 //
 // This source code is licensed under Apache 2.0 License.
 
-part of dart_gdbc_pool;
+part of "../dart_gdbc_pool.dart";
 
 class StatePooled<T> with Pooled<T> {
   PooledState state = PooledState.idle;

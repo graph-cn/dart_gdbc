@@ -1,6 +1,6 @@
 name: dart_gdbc_pool
-description: An implementation of connection pool for dart_gdbc.
-version: 0.0.2+1
+description: An implementation of connection pool for dart_gdbc. Mush be used with dart_gdbc.
+version: 0.0.2+2
 repository: https://github.com/graph-cn/dart_gdbc/tree/main/impls/pool/dart_gdbc_pool
 
 environment:
@@ -8,8 +8,9 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  dart_gdbc: ^0.0.2+1
+  dart_gdbc: ^0.0.2+2
+    # path: ../../../
 
 dev_dependencies:
-  lints: ^2.0.0
+  lints: ^3.0.0
   test: ^1.21.0

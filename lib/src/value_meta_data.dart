@@ -2,7 +2,7 @@
 //
 // This source code is licensed under Apache 2.0 License.
 
-part of dart_gdbc;
+part of "../dart_gdbc.dart";
 
 class ValueMetaData {
   late GdbTypes? type;

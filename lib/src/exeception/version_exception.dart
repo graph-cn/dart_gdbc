@@ -2,10 +2,9 @@
 //
 // This source code is licensed under Apache 2.0 License.
 
-part of dart_gdbc;
+part of "../../dart_gdbc.dart";
 
 /// Thrown when client and server versions are incompatible.
 class VersionException extends GdbcException {
-  VersionException({String? message, Error? cause})
-      : super(message: message, cause: cause);
+  VersionException({super.message, super.cause});
 }

@@ -2,7 +2,7 @@
 //
 // This source code is licensed under Apache 2.0 License.
 
-part of dart_gdbc;
+part of "../../dart_gdbc.dart";
 
 /// Exception thrown when a connection to a database could not be established.
 ///---
@@ -10,6 +10,5 @@ part of dart_gdbc;
 ///---
 /// 当无法连接到数据库时抛出的异常。
 class ConnectException extends GdbcException {
-  ConnectException({String? message, Error? cause})
-      : super(message: message, cause: cause);
+  ConnectException({super.message, super.cause});
 }
