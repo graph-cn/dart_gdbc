@@ -1,3 +1,6 @@
+## 0.0.3
+- Feat: Add ExecutionPlan to ResultSet.
+
 ## 0.0.2+2
 - fix: PoolConfig provides a constructor with parameters
 
