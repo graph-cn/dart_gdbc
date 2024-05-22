@@ -43,6 +43,7 @@ enum GdbTypes {
   date,
   time,
   dateTime,
+  timestamp,
   duration,
 
   line,

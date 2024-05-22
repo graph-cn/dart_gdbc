@@ -3,3 +3,4 @@ impls/nebula_dart_gdbc/**
 impls/neurodb_dart_gdbc/**
 impls/tugraph_dart_gdbc/**
 impls/neo4j_dart_gdbc/**
+impls/pool/**

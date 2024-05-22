@@ -1,3 +1,6 @@
+## 0.0.4
+- Feat: Add timestamp type.
+
 ## 0.0.3
 - Feat: ExecutionPlan support.
 
