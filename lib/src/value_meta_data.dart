@@ -20,6 +20,8 @@ class ValueMetaData {
     if ((values?.length ?? 0) <= idx) {
       values?.length = idx + 1;
       values?[idx] = val;
+    } else {
+      values?[idx] = val;
     }
     return idx;
   }

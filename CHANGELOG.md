@@ -1,3 +1,6 @@
+## 0.0.4+1
+- Fix: fix bug that value missing when vertex has multiple tags.
+
 ## 0.0.4
 - Feat: Add timestamp type.
 

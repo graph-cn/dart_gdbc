@@ -1,3 +1,6 @@
+## 0.0.4+1
+- chore: upgrade dependencies.
+
 ## 0.0.4
 - Feat: Add timestamp type.
 
