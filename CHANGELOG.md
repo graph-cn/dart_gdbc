@@ -1,3 +1,7 @@
+## 0.0.5
+- Feat: Refine the time type to fully adapt to the field definitions of different databases.
+- Feat: Add `databaseName` field to `Connection` to hold the tablespace name.
+
 ## 0.0.4+1
 - Fix: fix bug that value missing when vertex has multiple tags.
 

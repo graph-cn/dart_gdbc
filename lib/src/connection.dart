@@ -6,6 +6,13 @@ part of "../dart_gdbc.dart";
 
 /// A connection (session) with a specific database.
 abstract class Connection {
+  /// zh: 图数据库中的表空间
+  ///
+  /// zh_hant: 圖資料庫中的表空間
+  ///
+  /// en: The table space in the graph database
+  String? get databaseName;
+
   /// Creates a new [Statement] instance.
   Future<Statement> createStatement();
 
