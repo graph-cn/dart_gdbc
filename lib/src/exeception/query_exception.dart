@@ -6,5 +6,5 @@ part of "../../dart_gdbc.dart";
 
 /// Thrown when a query cannot be executed.
 class GdbcQueryException extends GdbcException {
-  GdbcQueryException({super.message, super.cause});
+  GdbcQueryException({super.code, super.message, super.cause});
 }

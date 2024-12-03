@@ -10,5 +10,5 @@ part of "../../dart_gdbc.dart";
 ///---
 /// 当无法连接到数据库时抛出的异常。
 class ConnectException extends GdbcException {
-  ConnectException({super.message, super.cause});
+  ConnectException({super.code, super.message, super.cause});
 }

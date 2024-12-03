@@ -7,5 +7,6 @@ part of "../../dart_gdbc.dart";
 /// A [GdbcException] thrown when a feature is not supported by the database.
 class DbFeatureException extends GdbcException {
   /// Creates a [DbFeatureException] with the given [message] and [cause].
-  DbFeatureException(String message, {super.cause}) : super(message: message);
+  DbFeatureException(String message, {super.code, super.cause})
+      : super(message: message);
 }

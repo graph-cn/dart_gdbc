@@ -6,11 +6,13 @@ part of "../../dart_gdbc.dart";
 
 /// A super class for all exceptions thrown by dart_gdbc.
 class GdbcException implements Error {
+  final String? code;
+
   final String? message;
 
   final Error? cause;
 
-  GdbcException({this.message, this.cause});
+  GdbcException({this.code, this.message, this.cause});
 
   @override
   StackTrace? get stackTrace => cause?.stackTrace;
