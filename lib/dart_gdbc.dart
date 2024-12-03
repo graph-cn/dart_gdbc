@@ -45,3 +45,13 @@ part 'src/types/gdb_node.dart';
 part 'src/types/gdb_path.dart';
 part 'src/types/gdb_relationship.dart';
 part 'src/types/type.dart';
+
+part 'src/types/time/instant.dart';
+part 'src/types/time/local_date_time.dart';
+part 'src/types/time/local_date.dart';
+part 'src/types/time/local_time.dart';
+part 'src/types/time/offset_time.dart';
+part 'src/types/time/zone_id.dart';
+part 'src/types/time/zone_offset.dart';
+part 'src/types/time/zone_region.dart';
+part 'src/types/time/zoned_date_time.dart';
