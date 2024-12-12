@@ -157,6 +157,18 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
   @override
   void returnObj(StatePooled<Connection> obj) {
     obj.state = PooledState.idle;
-    super.returnObj(obj);
+    if (pool.length < config.maxSize) {
+      super.returnObj(obj);
+    } else {
+      obj.origin?.close();
+      pool.remove(obj);
+      idleCount--;
+    }
   }
+
+  String? get version =>
+      pool.where((e) => e.origin?.version != null).firstOrNull?.origin?.version;
+
+  @override
+  String? get databaseName => throw DbFeatureException("连接池不直接持有表空间");
 }

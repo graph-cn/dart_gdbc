@@ -13,6 +13,13 @@ abstract class Connection {
   /// en: The table space in the graph database
   String? get databaseName;
 
+  /// zh: 数据库版本
+  ///
+  /// zh_hant: 數據庫版本
+  ///
+  /// en: Database version
+  String? version;
+
   /// Creates a new [Statement] instance.
   Future<Statement> createStatement();
 

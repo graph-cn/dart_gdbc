@@ -7,6 +7,9 @@ part of "../dart_gdbc.dart";
 abstract class ResultSet {
   bool success = true;
 
+  dynamic code;
+  dynamic message;
+
   List<ValueMetaData> get metas;
 
   List<List<dynamic>> get rows;

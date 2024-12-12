@@ -5,3 +5,7 @@
 [submodule "impls/neurodb_dart_gdbc"]
 	path = impls/neurodb_dart_gdbc
 	url = https://github.com/graph-cn/neurodb_dart_gdbc.git
+
+[submodule "impls/bolt_dart_gdbc"]
+	path = impls/nebula_dart_gdbc
+	url = https://github.com/graph-cn/bolt_dart_gdbc.git
