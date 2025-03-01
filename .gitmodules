@@ -1,3 +1,14 @@
+# git submodule add impls/bolt_dart_gdbc
+# git submodule add impls/nebula_dart_gdbc
+# git submodule add impls/neurodb_dart_gdbc
+# git submodule add impls/tu_graph_bolt_dart_gdbc
+# git submodule add impls/mysql_dart_gdbc
+
+# git submodule add impls/pool/dart_gdbc_pool
+[submodule "impls/bolt_dart_gdbc"]
+	path = impls/bool_dart_gdbc
+	url = https://github.com/graph-cn/bolt_dart_gdbc.git
+
 [submodule "impls/nebula_dart_gdbc"]
 	path = impls/nebula_dart_gdbc
 	url = https://github.com/graph-cn/nebula_dart_gdbc.git
@@ -6,6 +17,14 @@
 	path = impls/neurodb_dart_gdbc
 	url = https://github.com/graph-cn/neurodb_dart_gdbc.git
 
-[submodule "impls/bolt_dart_gdbc"]
-	path = impls/nebula_dart_gdbc
-	url = https://github.com/graph-cn/bolt_dart_gdbc.git
+[submodule "impls/tu_graph_bolt_dart_gdbc"]
+	path = impls/tu_graph_bolt_dart_gdbc
+	url = https://github.com/graph-cn/tu_graph_bolt_dart_gdbc.git
+
+[submodule "impls/mysql_dart_gdbc"]
+	path = impls/mysql_dart_gdbc
+	url = https://github.com/graph-cn/mysql_dart_gdbc.git
+
+[submodule "impls/pool/dart_gdbc_pool"]
+	path = impls/pool/dart_gdbc_pool
+	url = https://github.com/graph-cn/dart_gdbc_pool.git
