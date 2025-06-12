@@ -8,7 +8,17 @@ class ZonedDateTime extends DateTime {
   final LocalDateTime? dateTime;
   final ZoneOffset? offset;
   final ZoneId? zone;
-  ZonedDateTime(this.dateTime, this.offset, this.zone) : super(0);
+  ZonedDateTime(this.dateTime, this.offset, this.zone)
+      : super.utc(
+          dateTime?.year ?? 0,
+          dateTime?.month ?? 1,
+          dateTime?.day ?? 1,
+          dateTime?.hour ?? 0,
+          dateTime?.minute ?? 0,
+          dateTime?.second ?? 0,
+          dateTime?.millisecond ?? 0,
+          dateTime?.microsecond ?? 0,
+        );
 
   Instant toInstant() {
     return Instant.ofEpochSecond(toEpochSecond(), toLocalTime().getNano());

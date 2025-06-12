@@ -11,7 +11,7 @@ class OffsetTime extends DateTime {
     int second = 0,
     int millisecond = 0,
     int microsecond = 0,
-  ]) : super(0, 0, 0, hour, minute, second, millisecond, microsecond);
+  ]) : super.utc(1970, 1, 1, hour, minute, second, millisecond, microsecond);
 
   LocalTime toLocalTime() {
     return LocalTime(hour, minute, second, millisecond, microsecond);

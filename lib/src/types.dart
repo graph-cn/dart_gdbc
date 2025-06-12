@@ -36,13 +36,16 @@ enum GdbTypes {
   long,
   float,
   double,
+  decimal,
 
   bytes,
   string,
 
   date,
   time,
+  zonedTime,
   dateTime,
+  zonedDateTime,
   timestamp,
   duration,
 
