@@ -49,6 +49,7 @@ class DriverManager {
     String? username,
     String? password,
     ConnectionPool? pooledConnection,
+    Function()? onClose,
   }) async {
     Driver? driver;
     try {
@@ -70,7 +71,11 @@ class DriverManager {
       pooledConnection.driver = driver;
       return pooledConnection;
     } else {
-      return await driver.connect(url, properties: properties);
+      return await driver.connect(
+        url,
+        properties: properties,
+        onClose: onClose,
+      );
     }
   }
 }

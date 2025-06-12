@@ -1,3 +1,7 @@
+## 0.0.6
+- Feat: Add `onClose` callback to `Connection` to allow custom cleanup logic when the connection is closed.
+- Feat: Add `decimal`, `zonedTime`, and `zonedDateTime` types to support more complex data types.
+
 ## 0.0.5
 - Feat: Refine the time type to fully adapt to the field definitions of different databases.
 - Feat: Add `databaseName` field to `Connection` to hold the tablespace name.

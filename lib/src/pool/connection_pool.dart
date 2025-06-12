@@ -6,15 +6,18 @@ part of "../../dart_gdbc.dart";
 
 abstract class ConnectionPool<T extends Pooled> extends Connection
     with HasPool<T>, HasDriver {
-  ConnectionPool([PoolConfig? poolConfig]) {
+  ConnectionPool(PoolConfig? poolConfig, {super.onClose}) {
     config = poolConfig ?? PoolConfig();
   }
 
   Connection Function(T) get connectionGetter;
 
   Future<Connection> createConnection() {
-    return DriverManager.getConnection(config.url!,
-        properties: config.properties);
+    return DriverManager.getConnection(
+      config.url!,
+      properties: config.properties,
+      onClose: config.onClose,
+    );
   }
 
   Future<D> proxy<D>(Future<D> Function(Connection) method) async {

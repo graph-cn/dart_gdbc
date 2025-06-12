@@ -6,12 +6,21 @@ part of "../dart_gdbc.dart";
 
 /// A connection (session) with a specific database.
 abstract class Connection {
+  Connection({this.onClose, this.version});
+
   /// zh: 图数据库中的表空间
   ///
   /// zh_hant: 圖資料庫中的表空間
   ///
   /// en: The table space in the graph database
   String? get databaseName;
+
+  /// zh: 连接关闭时的回调函数
+  ///
+  /// zh_hant: 連接關閉時的回調函數
+  ///
+  /// en: Callback function when the connection is closed
+  Function()? onClose;
 
   /// zh: 数据库版本
   ///

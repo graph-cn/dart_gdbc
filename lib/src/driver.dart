@@ -19,7 +19,11 @@ abstract class Driver with HasDataSource {
   /// 嘗試通過給定的 url 來創建一個數據庫連接。
   /// ---
   /// 尝试通过给定的 url 来创建一个数据库连接。
-  Future<Connection> connect(String url, {Map<String, dynamic> properties});
+  Future<Connection> connect(
+    String url, {
+    Map<String, dynamic> properties,
+    Function()? onClose,
+  });
 
   /// Retrieves whether the driver thinks that it can open a connection to the given URL.
   /// ---

@@ -19,6 +19,7 @@ class PoolConfig {
     this.lifetime = const Duration(seconds: 60),
     this.checkInterval = const Duration(seconds: 30),
     this.clearOnError = true,
+    this.onClose,
   });
 
   String? url;
@@ -74,4 +75,11 @@ class PoolConfig {
   ///
   /// Whether to clear the connection when an error occurs
   final bool clearOnError;
+
+  /// 当连接关闭时，执行的回调函数
+  ///
+  /// 當連接關閉時，執行的回調函數
+  ///
+  /// The callback function executed when a connection is closed
+  final Function()? onClose;
 }
