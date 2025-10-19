@@ -18,7 +18,11 @@ class SampleDriver extends Driver {
   }
 
   @override
-  Future<Connection> connect(String url, {Map<String, dynamic>? properties}) {
+  Future<Connection> connect(
+    String url, {
+    Map<String, dynamic>? properties,
+    Function()? onClose,
+  }) {
     return Future.value(SampleConnection());
   }
 }
