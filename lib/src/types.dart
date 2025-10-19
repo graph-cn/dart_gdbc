@@ -54,5 +54,7 @@ enum GdbTypes {
   polygon,
   geo,
 
+  embeddingVector,
+
   unknown,
 }
