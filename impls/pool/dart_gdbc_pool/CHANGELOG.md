@@ -1,3 +1,9 @@
+## 0.0.6
+- fix: Prevent connection objects that fail to connect from entering the connection pool.
+  > 阻止连接失败的连接对象进入连接池
+- chore: upgrade dependencies, add `onClose` callback to `Connection` to allow custom cleanup logic when the connection is closed.
+  > 适配上游项目支持的新特性，支持传入连接关闭时的回调函数
+
 ## 0.0.5
 - chore: upgrade dependencies.
 

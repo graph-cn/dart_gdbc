@@ -10,7 +10,10 @@ part of "../dart_gdbc_pool.dart";
 ///
 /// Stateful connection pool
 class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
-  StateConnectionPool({PoolConfig? config}) : super(config) {
+  StateConnectionPool({
+    PoolConfig? config,
+    super.onClose,
+  }) : super(config) {
     intervalCheck();
   }
 
@@ -21,7 +24,9 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
   /// Keep the minimum number of connections in the connection pool
   void keepPoolServe() async {
     while (pool.length < config.minSize) {
-      pool.add(await createStateConn());
+      var stateConn = await createStateConn();
+      if (stateConn == null) break;
+      pool.add(stateConn);
     }
   }
 
@@ -92,12 +97,20 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
 
   /// 创建连接
   createStateConn() async {
-    var stateConn = StatePooled<Connection>(config, () {
-      return driver.connect(config.url!, properties: config.properties!);
-    });
-    stateConn.origin = await stateConn.factory();
-    idleCount++;
-    return stateConn;
+    try {
+      var stateConn = StatePooled<Connection>(config, () {
+        return driver.connect(
+          config.url!,
+          properties: config.properties!,
+          onClose: config.onClose,
+        );
+      });
+      stateConn.origin = await stateConn.factory();
+      idleCount++;
+      return stateConn;
+    } catch (e) {
+      return null;
+    }
   }
 
   /// 获取连接
@@ -114,7 +127,9 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
     while (standingTime.add(config.wait).isAfter(DateTime.now()) &&
         statePooled.isEmpty) {
       if (pool.length < config.maxSize) {
-        pool.add(await createStateConn());
+        var stateConn = await createStateConn();
+        if (stateConn == null) break;
+        pool.add(stateConn);
       } else {
         await Future.delayed(config.waitInterval);
       }
@@ -133,8 +148,10 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
   ///
   /// Close the connection pool
   @override
-  Future<void> close() =>
-      Future.any(pool.map((element) async => element.origin?.close()));
+  Future<void> close() async {
+    await Future.any(pool.map((element) async => element.origin?.close()));
+    onClose?.call();
+  }
 
   /// 获取连接的方法
   ///
@@ -166,6 +183,7 @@ class StateConnectionPool extends ConnectionPool<StatePooled<Connection>> {
     }
   }
 
+  @override
   String? get version =>
       pool.where((e) => e.origin?.version != null).firstOrNull?.origin?.version;
 
